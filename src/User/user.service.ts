@@ -27,11 +27,11 @@ export class UserService{
     }
 
     async getUsers(){
-        return this.userModel.find().populate('settings').exec();
+        return this.userModel.find().populate(['settings', 'posts']).exec();
     }
     
     async getUserById(id: string){
-        return this.userModel.findById(id).populate('settings').exec();
+        return this.userModel.findById(id).populate(['settings', 'posts']).exec();
     }
     
     async updateUser(id: string, updateUser: UpdateUserDto){
